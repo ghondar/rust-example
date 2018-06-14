@@ -4,7 +4,10 @@ use rocket_contrib::{Json, JsonValue};
 use meta;
 use models;
 
+const DATA: &'static str = "Data";
+
 type ID = String;
+
 
 #[post("/user", format = "application/json", data="<user>")]
 pub fn create(user: Json<meta::user::Post>) -> JsonValue {
@@ -37,7 +40,7 @@ pub fn create(user: Json<meta::user::Post>) -> JsonValue {
     }
 }
 
-#[get("/user/<id>", format = "application/json")]
+#[get("/user/<id>")]
 pub fn get(id: ID) -> JsonValue {
     let document = models::user::find_one(id.to_owned()).unwrap();
     let result = bson::from_bson::<meta::user::GetResponse>(bson::Bson::Document(document.unwrap()));

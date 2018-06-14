@@ -49,12 +49,12 @@ impl Model {
     Ok(response_document)
 }
 
-pub fn find_all() -> Cursor {
+pub fn find_all() -> Result<Cursor, io::Error> {
     let db = lib::mongo::establish_connection();
     let collection = db.collection("users");
 
     let response_document = collection.find(None, None)
         .ok().expect("Failed to execute find.");
 
-    response_document
+    Ok(response_document)
 }
