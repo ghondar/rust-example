@@ -16,11 +16,6 @@ pub struct Post {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct Users {
-    pub data: Vec<GetResponse>
-}
-
-#[derive(Serialize, Deserialize, Debug)]
 pub struct GetResponse {
     pub _id: bson::oid::ObjectId,
     pub email: String,
