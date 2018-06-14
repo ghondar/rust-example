@@ -4,8 +4,6 @@ use rocket_contrib::{Json, JsonValue};
 use meta;
 use models;
 
-const DATA: &'static str = "Data";
-
 type ID = String;
 
 

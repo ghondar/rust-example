@@ -10,7 +10,7 @@ pub fn get() -> JsonValue {
     let mut users = Vec::new();
 
     for docu in document {
-        let data = bson::from_bson::<meta::user::GetResponse>(bson::Bson::Document(docu.unwrap()));
+        let data = bson::from_bson::<meta::user::User>(bson::Bson::Document(docu.unwrap()));
         match data {
             Ok(user) => {
                 users.push(user)
