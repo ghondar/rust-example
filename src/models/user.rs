@@ -37,7 +37,7 @@ impl Model {
   }
 }
 
-  pub fn find_one(user_id: String) -> Result<std::option::Option<bson::ordered::OrderedDocument>, io::Error> {
+pub fn find_one(user_id: String) -> Result<std::option::Option<bson::ordered::OrderedDocument>, io::Error> {
     let db = lib::mongo::establish_connection();
     let collection = db.collection("users");
 
